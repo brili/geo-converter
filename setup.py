@@ -11,7 +11,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name='geo_converter',
     packages=['geo_converter'],
-    package_dir={'geo_converter': 'src'},
+    # package_dir={'geo_converter': 'src'},
     version='0.0.1',
     python_requires=">=3.8",
     description='Convert various geo formats (tiff, netcdf into csv)',
@@ -25,10 +25,15 @@ setup(
         "License :: OSI Approved :: MIT License",
     ],
     install_requires=[
-        "geotiff",
         "pyproj",
         "zarr",
         "numpy",
         "h3",
+        'dask',
+        'pandas',
+        'gdal==3.0.4',
     ],
+    entry_points={
+        'console_scripts': ['geo-converter=geo_converter.__main__:main'],
+    }
 )
