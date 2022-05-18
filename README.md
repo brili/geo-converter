@@ -36,11 +36,6 @@ converter.parse()
 converter.to_csv()
 ```
 
-This will detect the format based on the file type.
-
-```python
-geo_tiff = GeoTiff(tiff_file, crs_code=4326)
-```
 
 #### Create new converter
 
