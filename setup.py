@@ -15,7 +15,7 @@ setup(
     description='Convert various geo formats (tiff, netcdf into csv)',
     author='Brilant Kasami',
     author_email='brilant@mit.edu',
-    url='https://github.com/mcsc-data-hub/geo_converter',
+    url='https://github.mit.edu/MCSC-DataHub/geo_converter',
     keywords=['tiff', 'netcdf', 'geoTIFF'],
     classifiers=[
         "Programming Language :: Python :: 3",
