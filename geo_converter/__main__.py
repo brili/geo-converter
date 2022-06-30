@@ -16,8 +16,7 @@ def main():
 
     factory = GeoConverterFactory(args.input, args.output)
     converter = factory.get_converter()
-    converter.parse()
-    converter.to_csv()
+    converter.convert()
 
 
 if __name__ == "__main__":

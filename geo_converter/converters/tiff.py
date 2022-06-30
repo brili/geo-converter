@@ -1,4 +1,5 @@
-import logging
+import os
+
 from tempfile import NamedTemporaryFile
 import dask.dataframe as dd
 from osgeo import gdal
@@ -8,16 +9,14 @@ from geo_converter.base import BaseConverter
 
 
 class TiffConverter(BaseConverter):
-    def parse(self):
-        self.data = gdal.Open(self.input_file)
+    tmp = None
 
-    def to_csv(self):
-        with NamedTemporaryFile(suffix='.xyz') as tmp:
-            gdal.Translate(tmp.name, self.data)
-            ddf = dd.read_csv(tmp.name, sep=" ", header=None)
-            ddf.columns = ["lat", "lng", 'elevation']
-            ddf.to_csv(self.output_file, index=False, single_file=True)
-            logging.info(
-                "Conversion finished, output file: %s",
-                self.output_file
-            )
+    def parse(self):
+        self._data = gdal.Open(self.input_file)
+        self.tmp = NamedTemporaryFile(suffix='.xyz', delete=False)
+        gdal.Translate(self.tmp.name, self._data)
+        self._dataframe = dd.read_csv(self.tmp.name, sep=" ", header=None)
+        self._dataframe.columns = ["lat", "lng", 'value']
+
+    def __del__(self):
+        os.unlink(self.tmp.name)

@@ -27,13 +27,12 @@ geo-converter -i dem.tif -o output.csv
 ```
 `-i` is mandatory, `-o` is optional and if ommited will take the name of the input file
 
-#### Making the GeoTiff object
+#### Example from a python script
 
 ```python
 factory = GeoConverterFactory(args.input, args.output)
 converter = factory.get_converter()
-converter.parse()
-converter.to_csv()
+converter.convert()
 ```
 
 
@@ -52,7 +51,7 @@ factory.register_converter(file_type, converter_class)
 #### Core Features
 
 - [x] Convert tiff files to csv
-- [ ] Convert netcdf files to csv
+- [x] Convert netcdf files to csv
 
 
 ### Troubleshhoot
@@ -61,3 +60,8 @@ If there are issues while installing gdal run and make sure you have the same gd
 ```console
 gdal-config --version
 ```
+
+# NetCDF datetime decoding error
+ ```
+xr.open_dataset(self.input_file, decode_times=False)
+ ```

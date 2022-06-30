@@ -1,11 +1,14 @@
 import logging
+
 from pathlib import Path
 
+from geo_converter.converters.netcdf import NetcdfConverter
 from geo_converter.converters.tiff import TiffConverter
 
 CONVERTERS = {
     "tif": TiffConverter,
     "tiff": TiffConverter,
+    "nc": NetcdfConverter
 }
 
 ALLOWED_OUTPUT_FORMATS = ['csv']
