@@ -11,8 +11,8 @@ CONVERTERS = {
     "nc": NetcdfConverter
 }
 
-ALLOWED_OUTPUT_FORMATS = ['csv']
-DEFAULT_OUTPUT = 'csv'
+ALLOWED_OUTPUT_FORMATS = ['csv', 'parquet']
+DEFAULT_OUTPUT = 'parquet'
 
 
 class GeoConverterFactory:

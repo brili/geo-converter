@@ -33,6 +33,7 @@ setup(
         'gdal==3.0.4',
         'netCDF4',
         'xarray',
+        'pyarrow',
     ],
     entry_points={
         'console_scripts': ['geo-converter=geo_converter.__main__:main'],

@@ -23,3 +23,7 @@ class BaseConverter:
             "Conversion finished, output file: %s",
             self.output_file
         )
+
+    def to_parquet(self):
+
+        self._dataframe.to_parquet(self.output_file)

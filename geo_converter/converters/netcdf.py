@@ -5,5 +5,5 @@ from geo_converter.base import BaseConverter
 
 class NetcdfConverter(BaseConverter):
     def parse(self):
-        self._data = xr.open_dataset(self.input_file)
+        self._data = xr.open_dataset(self.input_file, decode_times=False)
         self._dataframe = self._data.to_dask_dataframe()
