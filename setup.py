@@ -1,3 +1,4 @@
+import subprocess
 from setuptools import setup  # type: ignore
 
 # Send to pypi
@@ -6,6 +7,8 @@ from setuptools import setup  # type: ignore
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
+
+GDAL_VERSION=subprocess.getoutput("gdal-config --version")
 
 setup(
     name='geo_converter',
@@ -30,7 +33,7 @@ setup(
         "h3",
         'dask',
         'pandas',
-        'gdal==3.0.4',
+        f'pygdal=={GDAL_VERSION}.*',
         'netCDF4',
         'xarray',
         'pyarrow',

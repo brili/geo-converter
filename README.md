@@ -23,9 +23,9 @@ pip install .
 
 ### Usage
 ```console
-geo-converter -i dem.tif -o output.csv
+geo-converter -i /path/to/input/dem.tif -o /path/to/output/output.csv
 ```
-`-i` is mandatory, `-o` is optional and if ommited will take the name of the input file
+`-i` is mandatory, `-o` is optional and if ommited will take the name of the input file and default to parquet
 
 #### Example from a python script
 
