@@ -1,5 +1,5 @@
 import subprocess
-from setuptools import setup  # type: ignore
+from setuptools import setup, find_packages  # type: ignore
 
 # Send to pypi
 # python3 setup.py sdist bdist_wheel
@@ -12,7 +12,7 @@ GDAL_VERSION=subprocess.getoutput("gdal-config --version")
 
 setup(
     name='geo_converter',
-    packages=['geo_converter'],
+    packages=find_packages(),
     version='0.0.1',
     python_requires=">=3.8",
     description='Convert various geo formats (tiff, netcdf into csv)',
